@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Quiz</title>
+</head>
+<body>
+    <h1>Create Quiz</h1>
+    <form method="post">
+        <label>Title: <input type="text" name="title" required></label><br>
+        {% for i in range(1,11) %}
+            <h3>Question {{ i }}</h3>
+            <input type="text" name="q{{ i }}" placeholder="Question text"><br>
+            {% for j in range(1,5) %}
+                Option {{ j }}: <input type="text" name="q{{ i }}_o{{ j }}"><br>
+            {% endfor %}
+            Correct option number: <input type="number" name="q{{ i }}_ans" min="1" max="4"><br>
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCQ Manager</title>
+</head>
+<body>
+    <h1>Quizzes</h1>
+    <a href="{{ url_for('new_quiz') }}">Create New Quiz</a>
+    <ul>
+    {% for qid, quiz in quizzes.items() %}
+        <li>
+            {{ quiz.title }} -
+            <a href="{{ url_for('sheet', quiz_id=qid) }}">Sheet</a> |
+            <a href="{{ url_for('manual_mark', quiz_id=qid) }}">Manual Mark</a> |
+            <a href="{{ url_for('export_results', quiz_id=qid) }}">Export</a>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
